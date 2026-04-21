@@ -11,30 +11,220 @@
       --muted: #7f93ab;
       --border: #d8e4f0;
       --shadow: 0 10px 30px rgba(73, 114, 160, 0.08);
+      --soft: #dbeaf8;
     }
-    * { box-sizing:border-box; margin:0; padding:0; }
-    body { font-family: Arial, Helvetica, sans-serif; background: linear-gradient(180deg, #f6f9fd 0%, #eaf2fa 100%); color: var(--text); }
-    .page { max-width: 1200px; margin: 0 auto; padding: 32px 20px 48px; }
-    .topbar { display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; margin-bottom:24px; }
-    .brand { display:flex; align-items:center; gap:12px; font-weight:700; color:var(--blue-dark); font-size:1.3rem; }
-    .logo { width:30px; height:30px; border-radius:8px; background:linear-gradient(135deg,#9ec6ef,#6fa6df); position:relative; }
-    .logo::after { content:"✔"; position:absolute; color:#fff; left:7px; top:3px; }
-    .nav { display:flex; gap:10px; flex-wrap:wrap; }
-    .nav a, .btn { text-decoration:none; padding:12px 16px; border-radius:12px; font-weight:700; border:1px solid var(--border); background:#fff; color:var(--text); }
-    .nav a.active, .btn.primary { background:#dbeaf8; color:var(--blue-dark); }
-    .hero, .card { background:#fff; border:1px solid var(--border); border-radius:22px; box-shadow:var(--shadow); }
-    .hero { padding:26px; margin-bottom:22px; }
-    .hero h1 { color:var(--blue-dark); margin-bottom:8px; }
-    .hero p, .muted { color:var(--muted); }
-    .grid { display:grid; grid-template-columns: 1fr 1fr; gap:20px; }
-    .card { padding:22px; }
-    .calendar { display:grid; grid-template-columns: repeat(5,1fr); gap:8px; margin-top:16px; }
-    .calendar div { text-align:center; padding:10px 6px; border:1px solid var(--border); border-radius:10px; background:#f3f8fd; }
-    .time { background:#dbeaf8 !important; color:var(--blue-dark); font-weight:700; }
-    .advisor { display:flex; gap:12px; align-items:center; border:1px solid var(--border); border-radius:16px; padding:14px; margin-top:16px; background:#fbfdff; }
-    .photo { width:50px; height:50px; border-radius:50%; background:linear-gradient(135deg,#ecd6d6,#cfb7b7); }
-    .faq-item { border:1px solid var(--border); border-radius:16px; padding:14px; background:#fbfdff; margin-top:12px; }
-    @media (max-width: 900px) { .grid { grid-template-columns:1fr; } }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #f6f9fd 0%, #eaf2fa 100%);
+      color: var(--text);
+    }
+
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px 20px 48px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      color: var(--blue-dark);
+      font-size: 1.3rem;
+    }
+
+    .logo {
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #9ec6ef, #6fa6df);
+      position: relative;
+    }
+
+    .logo::after {
+      content: "✔";
+      position: absolute;
+      color: #fff;
+      left: 7px;
+      top: 3px;
+    }
+
+    .nav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .nav a,
+    .btn {
+      text-decoration: none;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-weight: 700;
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--text);
+      transition: 0.2s ease;
+      cursor: pointer;
+    }
+
+    .nav a:hover,
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .nav a.active,
+    .btn.primary {
+      background: var(--soft);
+      color: var(--blue-dark);
+    }
+
+    .hero,
+    .card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      padding: 26px;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      color: var(--blue-dark);
+      margin-bottom: 8px;
+      font-size: 2.8rem;
+    }
+
+    .hero p,
+    .muted {
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .card {
+      padding: 22px;
+    }
+
+    .card h2 {
+      font-size: 1.9rem;
+      margin-bottom: 6px;
+    }
+
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .calendar div,
+    .time-btn {
+      text-align: center;
+      padding: 16px 8px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: #f3f8fd;
+      font-size: 1rem;
+    }
+
+    .calendar .label {
+      font-weight: 700;
+    }
+
+    .time-btn {
+      color: var(--blue-dark);
+      font-weight: 700;
+      background: #eaf3fc;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .time-btn:hover {
+      background: #dfeefd;
+    }
+
+    .time-btn.selected {
+      background: #cfe3f8;
+      border-color: #aecaeb;
+      box-shadow: inset 0 0 0 1px #b8d4ef;
+    }
+
+    .advisor {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 18px;
+      margin-top: 22px;
+      background: #fbfdff;
+    }
+
+    .photo {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ecd6d6, #cfb7b7);
+      flex-shrink: 0;
+    }
+
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+      background: #fbfdff;
+      margin-top: 12px;
+    }
+
+    .status-box {
+      margin-top: 18px;
+      padding: 14px 16px;
+      background: #f7fbff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      color: var(--blue-dark);
+      font-weight: 700;
+      min-height: 52px;
+    }
+
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .calendar {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
   </style>
 </head>
 <body>
@@ -60,21 +250,41 @@
         <p class="muted">Choose a time that works best for your schedule.</p>
 
         <div class="calendar">
-          <div>April</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div>
-          <div>4.3</div><div>5.4</div><div>6.6</div><div>7.8</div><div>8.9</div>
-          <div class="time">2:00 PM</div><div class="time">3:00 PM</div><div class="time">4:00 PM</div><div></div><div></div>
+          <div class="label">April</div>
+          <div class="label">Tue</div>
+          <div class="label">Wed</div>
+          <div class="label">Thu</div>
+          <div class="label">Fri</div>
+
+          <div>4.3</div>
+          <div>5.4</div>
+          <div>6.6</div>
+          <div>7.8</div>
+          <div>8.9</div>
+
+          <button class="time-btn" data-time="Tuesday at 2:00 PM">2:00 PM</button>
+          <button class="time-btn" data-time="Wednesday at 3:00 PM">3:00 PM</button>
+          <button class="time-btn" data-time="Thursday at 4:00 PM">4:00 PM</button>
+          <div></div>
+          <div></div>
         </div>
 
         <div class="advisor">
           <div class="photo"></div>
           <div>
-            <strong>Anna Johnson</strong><br>
+            <strong style="font-size:1.1rem;">Anna Johnson</strong><br>
             <span class="muted">College Admissions Advisor</span><br>
             <span class="muted">Essay Help · Admissions · Test Prep</span>
           </div>
         </div>
 
-        <a class="btn primary" href="tracker.html" style="display:inline-block; margin-top:18px;">View My Application Progress</a>
+        <div class="status-box" id="selectedTimeBox">
+          Select a time to book your session.
+        </div>
+
+        <a class="btn primary" id="progressButton" href="tracker.html" style="display:inline-block; margin-top:18px;">
+          View My Application Progress
+        </a>
       </section>
 
       <section class="card">
@@ -83,20 +293,43 @@
 
         <div class="faq-item">
           <strong>How do I keep track of deadlines?</strong>
-          <p class="muted" style="margin-top:8px;">Use the tracker page to organize schools by application stage and due date.</p>
+          <p class="muted" style="margin-top:8px;">
+            Use the tracker page to organize schools by application stage and due date.
+          </p>
         </div>
 
         <div class="faq-item">
           <strong>Can I compare multiple colleges at once?</strong>
-          <p class="muted" style="margin-top:8px;">Yes. The compare page shows side-by-side metrics like tuition, acceptance rate, and graduation rate.</p>
+          <p class="muted" style="margin-top:8px;">
+            Yes. The compare page shows side-by-side metrics like tuition, acceptance rate, and graduation rate.
+          </p>
         </div>
 
         <div class="faq-item">
           <strong>What kind of support can advisors help with?</strong>
-          <p class="muted" style="margin-top:8px;">Advisors can help with essay planning, deadlines, recommendations, test prep, and college selection questions.</p>
+          <p class="muted" style="margin-top:8px;">
+            Advisors can help with essay planning, deadlines, recommendations, test prep, and college selection questions.
+          </p>
         </div>
       </section>
     </div>
   </div>
+
+  <script>
+    const timeButtons = document.querySelectorAll(".time-btn");
+    const selectedTimeBox = document.getElementById("selectedTimeBox");
+    const progressButton = document.getElementById("progressButton");
+
+    timeButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        timeButtons.forEach(btn => btn.classList.remove("selected"));
+        button.classList.add("selected");
+
+        const chosenTime = button.getAttribute("data-time");
+        selectedTimeBox.textContent = `Session selected: ${chosenTime}`;
+        progressButton.textContent = `Session Chosen • View My Application Progress`;
+      });
+    });
+  </script>
 </body>
 </html>
