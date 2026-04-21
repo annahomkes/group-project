@@ -722,10 +722,35 @@
         <p class="muted">Search, compare, and save schools that fit your goals.</p>
 
         <div class="search-row">
-          <input type="text" placeholder="Search colleges" />
-          <select><option>Location</option></select>
-          <select><option>Major</option></select>
-          <select><option>Difficulty</option></select>
+         <div class="search-row">
+  <input type="text" id="collegeSearch" placeholder="Search colleges" />
+
+  <select id="locationFilter">
+    <option value="">Location</option>
+    <option value="northeast">Northeast</option>
+    <option value="south">South</option>
+    <option value="midwest">Midwest</option>
+    <option value="west">West</option>
+    <option value="urban">Urban</option>
+    <option value="suburban">Suburban</option>
+  </select>
+
+  <select id="majorFilter">
+    <option value="">Major</option>
+    <option value="business">Business</option>
+    <option value="engineering">Engineering</option>
+    <option value="psychology">Psychology</option>
+    <option value="computer-science">Computer Science</option>
+    <option value="communications">Communications</option>
+  </select>
+
+  <select id="difficultyFilter">
+    <option value="">Difficulty</option>
+    <option value="reach">Reach</option>
+    <option value="target">Target</option>
+    <option value="safety">Safety</option>
+  </select>
+</div>
         </div>
 
         <div class="school-item">
