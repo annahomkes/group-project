@@ -85,11 +85,6 @@
       cursor: pointer;
     }
 
-    .nav a:hover,
-    .btn:hover {
-      transform: translateY(-1px);
-    }
-
     .nav a.active,
     .btn.primary {
       background: var(--soft);
@@ -135,43 +130,42 @@
       margin-bottom: 6px;
     }
 
-    .calendar {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 12px;
+    .booking-header {
       margin-top: 20px;
-    }
-
-    .calendar div,
-    .time-btn {
-      text-align: center;
-      padding: 16px 8px;
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      background: #f3f8fd;
-      font-size: 1rem;
-    }
-
-    .calendar .label {
-      font-weight: 700;
-    }
-
-    .time-btn {
+      margin-bottom: 14px;
       color: var(--blue-dark);
       font-weight: 700;
-      background: #eaf3fc;
+      font-size: 1.05rem;
+    }
+
+    .time-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 6px;
+    }
+
+    .time-btn {
+      text-align: center;
+      padding: 18px 10px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: #eef5fc;
+      color: var(--blue-dark);
+      font-size: 1.1rem;
+      font-weight: 700;
       cursor: pointer;
       transition: 0.2s ease;
     }
 
     .time-btn:hover {
-      background: #dfeefd;
+      background: #e0eefc;
     }
 
     .time-btn.selected {
       background: #cfe3f8;
-      border-color: #aecaeb;
-      box-shadow: inset 0 0 0 1px #b8d4ef;
+      border-color: #aac8ea;
+      box-shadow: inset 0 0 0 1px #b6d2ef;
     }
 
     .advisor {
@@ -193,14 +187,6 @@
       flex-shrink: 0;
     }
 
-    .faq-item {
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 16px;
-      background: #fbfdff;
-      margin-top: 12px;
-    }
-
     .status-box {
       margin-top: 18px;
       padding: 14px 16px;
@@ -212,6 +198,14 @@
       min-height: 52px;
     }
 
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+      background: #fbfdff;
+      margin-top: 12px;
+    }
+
     @media (max-width: 900px) {
       .grid {
         grid-template-columns: 1fr;
@@ -221,8 +215,8 @@
         font-size: 2.2rem;
       }
 
-      .calendar {
-        grid-template-columns: repeat(2, 1fr);
+      .time-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -249,24 +243,12 @@
         <h2>Book an Advising Session</h2>
         <p class="muted">Choose a time that works best for your schedule.</p>
 
-        <div class="calendar">
-          <div class="label">April</div>
-          <div class="label">Tue</div>
-          <div class="label">Wed</div>
-          <div class="label">Thu</div>
-          <div class="label">Fri</div>
+        <div class="booking-header">Available Session Times</div>
 
-          <div>4.3</div>
-          <div>5.4</div>
-          <div>6.6</div>
-          <div>7.8</div>
-          <div>8.9</div>
-
-          <button class="time-btn" data-time="Tuesday at 2:00 PM">2:00 PM</button>
-          <button class="time-btn" data-time="Wednesday at 3:00 PM">3:00 PM</button>
-          <button class="time-btn" data-time="Thursday at 4:00 PM">4:00 PM</button>
-          <div></div>
-          <div></div>
+        <div class="time-grid">
+          <button class="time-btn" data-time="Tuesday, April 3 at 2:00 PM">Tue • Apr 3 • 2:00 PM</button>
+          <button class="time-btn" data-time="Wednesday, April 4 at 3:00 PM">Wed • Apr 4 • 3:00 PM</button>
+          <button class="time-btn" data-time="Thursday, April 5 at 4:00 PM">Thu • Apr 5 • 4:00 PM</button>
         </div>
 
         <div class="advisor">
@@ -293,23 +275,17 @@
 
         <div class="faq-item">
           <strong>How do I keep track of deadlines?</strong>
-          <p class="muted" style="margin-top:8px;">
-            Use the tracker page to organize schools by application stage and due date.
-          </p>
+          <p class="muted" style="margin-top:8px;">Use the tracker page to organize schools by application stage and due date.</p>
         </div>
 
         <div class="faq-item">
           <strong>Can I compare multiple colleges at once?</strong>
-          <p class="muted" style="margin-top:8px;">
-            Yes. The compare page shows side-by-side metrics like tuition, acceptance rate, and graduation rate.
-          </p>
+          <p class="muted" style="margin-top:8px;">Yes. The compare page shows side-by-side metrics like tuition, acceptance rate, and graduation rate.</p>
         </div>
 
         <div class="faq-item">
           <strong>What kind of support can advisors help with?</strong>
-          <p class="muted" style="margin-top:8px;">
-            Advisors can help with essay planning, deadlines, recommendations, test prep, and college selection questions.
-          </p>
+          <p class="muted" style="margin-top:8px;">Advisors can help with essay planning, deadlines, recommendations, test prep, and college selection questions.</p>
         </div>
       </section>
     </div>
@@ -327,7 +303,7 @@
 
         const chosenTime = button.getAttribute("data-time");
         selectedTimeBox.textContent = `Session selected: ${chosenTime}`;
-        progressButton.textContent = `Session Chosen • View My Application Progress`;
+        progressButton.textContent = "Session Chosen • View My Application Progress";
       });
     });
   </script>
