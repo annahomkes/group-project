@@ -837,5 +837,23 @@
       <div class="feature">Accessible advising + helpful tools</div>
     </section>
   </div>
+  <script>
+  const getStartedBtn = document.getElementById("getStartedBtn");
+  const profileMessage = document.getElementById("profileMessage");
+
+  if (getStartedBtn) {
+    getStartedBtn.addEventListener("click", function () {
+      const grade = document.getElementById("gradeLevel")?.value || "";
+      const gpa = document.querySelector('input[placeholder="GPA"]')?.value || "";
+      const major = document.querySelector('input[placeholder="Add Major..."]')?.value || "";
+
+      if (!gpa || !grade || !major) {
+        profileMessage.textContent = "Please complete GPA, grade level, and major before continuing.";
+      } else {
+        profileMessage.textContent = `Profile started for a ${grade} student interested in ${major}.`;
+      }
+    });
+  }
+</script>
 </body>
 </html>
