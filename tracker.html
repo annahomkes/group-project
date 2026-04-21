@@ -18,36 +18,274 @@
       --shadow: 0 10px 30px rgba(73, 114, 160, 0.08);
       --radius: 18px;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: Arial, Helvetica, sans-serif; background: linear-gradient(180deg, #f6f9fd 0%, #eaf2fa 100%); color: var(--text); }
-    .page { max-width: 1200px; margin: 0 auto; padding: 32px 20px 48px; }
-    .topbar { display:flex; justify-content:space-between; align-items:center; gap:16px; margin-bottom:24px; flex-wrap:wrap; }
-    .brand { display:flex; align-items:center; gap:12px; font-weight:700; color:var(--blue-dark); font-size:1.3rem; }
-    .logo { width:30px; height:30px; border-radius:8px; background:linear-gradient(135deg,#9ec6ef,#6fa6df); position:relative; }
-    .logo::after { content:"✔"; position:absolute; color:#fff; left:7px; top:3px; }
-    .nav { display:flex; gap:10px; flex-wrap:wrap; }
-    .nav a, .btn { text-decoration:none; padding:12px 16px; border-radius:12px; font-weight:700; border:1px solid var(--border); background:#fff; color:var(--text); }
-    .nav a.active, .btn.primary { background:#dbeaf8; color:var(--blue-dark); }
-    .hero, .card { background:#fff; border:1px solid var(--border); border-radius:22px; box-shadow:var(--shadow); }
-    .hero { padding:26px; margin-bottom:22px; }
-    .hero h1 { color:var(--blue-dark); margin-bottom:8px; }
-    .hero p { color:var(--muted); }
-    .grid { display:grid; grid-template-columns: 1.3fr 0.7fr; gap:20px; }
-    .card { padding:22px; }
-    .section-title { margin-bottom:8px; }
-    .muted { color:var(--muted); }
-    .tabs { display:flex; border:1px solid var(--border); border-radius:12px; overflow:hidden; width:fit-content; margin:16px 0; }
-    .tabs span { padding:10px 16px; border-right:1px solid var(--border); background:#fff; color:var(--muted); font-weight:700; }
-    .tabs span:last-child { border-right:none; }
-    .tabs .active { background:#dbeaf8; color:var(--blue-dark); }
-    .app-item { display:flex; justify-content:space-between; gap:14px; align-items:center; padding:16px; border:1px solid var(--border); border-radius:16px; background:#fbfdff; margin-top:12px; }
-    .app-left { display:flex; gap:14px; align-items:center; }
-    .icon { width:42px; height:42px; border-radius:12px; background:#dbeaf8; display:grid; place-items:center; color:var(--blue-dark); font-weight:700; flex-shrink:0; }
-    .mini { width:90px; height:8px; background:#edf3f9; border-radius:999px; overflow:hidden; margin-top:6px; }
-    .mini span { display:block; height:100%; background:linear-gradient(90deg,#84b6e8,#b7d5f2); }
-    .checklist li { margin-left:18px; margin-top:10px; color:var(--text); }
-    .badge { display:inline-block; padding:8px 12px; background:#edf4fb; border-radius:999px; color:var(--blue-dark); font-weight:700; margin-top:10px; }
-    @media (max-width: 900px) { .grid { grid-template-columns:1fr; } }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #f6f9fd 0%, #eaf2fa 100%);
+      color: var(--text);
+    }
+
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px 20px 48px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      color: var(--blue-dark);
+      font-size: 1.3rem;
+    }
+
+    .logo {
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #9ec6ef, #6fa6df);
+      position: relative;
+    }
+
+    .logo::after {
+      content: "✔";
+      position: absolute;
+      color: #fff;
+      left: 7px;
+      top: 3px;
+    }
+
+    .nav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .nav a,
+    .btn {
+      text-decoration: none;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-weight: 700;
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--text);
+      transition: 0.2s ease;
+      cursor: pointer;
+    }
+
+    .nav a:hover,
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .nav a.active,
+    .btn.primary {
+      background: #dbeaf8;
+      color: var(--blue-dark);
+    }
+
+    .hero,
+    .card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      padding: 26px;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      color: var(--blue-dark);
+      margin-bottom: 8px;
+      font-size: 3rem;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 20px;
+    }
+
+    .card {
+      padding: 22px;
+    }
+
+    .section-title {
+      margin-bottom: 8px;
+      font-size: 2rem;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .tabs {
+      display: flex;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      width: fit-content;
+      margin: 22px 0 10px;
+      background: #fff;
+    }
+
+    .tab-btn {
+      padding: 16px 26px;
+      border: none;
+      background: #fff;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 1rem;
+      border-right: 1px solid var(--border);
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .tab-btn:last-child {
+      border-right: none;
+    }
+
+    .tab-btn.active {
+      background: #dbeaf8;
+      color: var(--blue-dark);
+    }
+
+    .tab-panel {
+      display: none;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    .app-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: center;
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: #fbfdff;
+      margin-top: 18px;
+    }
+
+    .app-left {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .icon {
+      width: 68px;
+      height: 68px;
+      border-radius: 18px;
+      background: #dbeaf8;
+      display: grid;
+      place-items: center;
+      color: var(--blue-dark);
+      font-weight: 700;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    .app-text strong {
+      display: block;
+      font-size: 1.1rem;
+      margin-bottom: 2px;
+    }
+
+    .app-date {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    .mini {
+      width: 140px;
+      height: 10px;
+      background: #edf3f9;
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+
+    .mini span {
+      display: block;
+      height: 100%;
+      background: linear-gradient(90deg, #84b6e8, #b7d5f2);
+    }
+
+    .checklist li {
+      margin-left: 18px;
+      margin-top: 12px;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 10px 16px;
+      background: #edf4fb;
+      border-radius: 999px;
+      color: var(--blue-dark);
+      font-weight: 700;
+      margin-top: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 2.3rem;
+      }
+
+      .tabs {
+        width: 100%;
+      }
+
+      .tab-btn {
+        flex: 1;
+        padding: 14px 10px;
+      }
+
+      .app-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .app-date {
+        margin-left: 88px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -72,63 +310,94 @@
       <section class="card">
         <h2 class="section-title">My Applications</h2>
         <p class="muted">Keep up with progress across all colleges in one place.</p>
+
         <div class="tabs">
-          <span class="active">Not Started</span>
-          <span>In Progress</span>
-          <span>Submitted</span>
+          <button class="tab-btn active" data-tab="not-started">Not Started</button>
+          <button class="tab-btn" data-tab="in-progress">In Progress</button>
+          <button class="tab-btn" data-tab="submitted">Submitted</button>
         </div>
 
-        <div class="app-item">
-          <div class="app-left">
-            <div class="icon">M</div>
-            <div>
-              <strong>University of Michigan</strong><br>
-              <span class="muted">Essay, test scores, recommendations</span>
-              <div class="mini"><span style="width:35%"></span></div>
+        <div class="tab-panel active" id="not-started">
+          <div class="app-item">
+            <div class="app-left">
+              <div class="icon">M</div>
+              <div class="app-text">
+                <strong>University of Michigan</strong>
+                <span class="muted">Essay, test scores, recommendations</span>
+                <div class="mini"><span style="width:35%"></span></div>
+              </div>
             </div>
+            <div class="app-date">Nov 1</div>
           </div>
-          <strong>Nov 1</strong>
+
+          <div class="app-item">
+            <div class="app-left">
+              <div class="icon">S</div>
+              <div class="app-text">
+                <strong>Stanford</strong>
+                <span class="muted">Profile started, tasks still pending</span>
+                <div class="mini"><span style="width:24%"></span></div>
+              </div>
+            </div>
+            <div class="app-date">Jan 1</div>
+          </div>
         </div>
 
-        <div class="app-item">
-          <div class="app-left">
-            <div class="icon">U</div>
-            <div>
-              <strong>UT Austin</strong><br>
-              <span class="muted">Essay draft and score submission left</span>
-              <div class="mini"><span style="width:56%"></span></div>
+        <div class="tab-panel" id="in-progress">
+          <div class="app-item">
+            <div class="app-left">
+              <div class="icon">U</div>
+              <div class="app-text">
+                <strong>UT Austin</strong>
+                <span class="muted">Essay draft and score submission left</span>
+                <div class="mini"><span style="width:56%"></span></div>
+              </div>
             </div>
+            <div class="app-date">Nov 15</div>
           </div>
-          <strong>Nov 15</strong>
+
+          <div class="app-item">
+            <div class="app-left">
+              <div class="icon">N</div>
+              <div class="app-text">
+                <strong>NYU</strong>
+                <span class="muted">Almost ready to submit</span>
+                <div class="mini"><span style="width:82%"></span></div>
+              </div>
+            </div>
+            <div class="app-date">Nov 1</div>
+          </div>
         </div>
 
-        <div class="app-item">
-          <div class="app-left">
-            <div class="icon">N</div>
-            <div>
-              <strong>NYU</strong><br>
-              <span class="muted">Almost ready to submit</span>
-              <div class="mini"><span style="width:82%"></span></div>
+        <div class="tab-panel" id="submitted">
+          <div class="app-item">
+            <div class="app-left">
+              <div class="icon">B</div>
+              <div class="app-text">
+                <strong>Boston University</strong>
+                <span class="muted">Application completed and sent</span>
+                <div class="mini"><span style="width:100%"></span></div>
+              </div>
             </div>
+            <div class="app-date">Submitted</div>
           </div>
-          <strong>Nov 1</strong>
-        </div>
 
-        <div class="app-item">
-          <div class="app-left">
-            <div class="icon">S</div>
-            <div>
-              <strong>Stanford</strong><br>
-              <span class="muted">Profile started, tasks still pending</span>
-              <div class="mini"><span style="width:24%"></span></div>
+          <div class="app-item">
+            <div class="app-left">
+              <div class="icon">V</div>
+              <div class="app-text">
+                <strong>Vanderbilt</strong>
+                <span class="muted">All materials received successfully</span>
+                <div class="mini"><span style="width:100%"></span></div>
+              </div>
             </div>
+            <div class="app-date">Submitted</div>
           </div>
-          <strong>Jan 1</strong>
         </div>
       </section>
 
       <aside class="card">
-        <h2 class="section-title">Next Steps</h2>
+        <h2 class="section-title" style="font-size:1.8rem;">Next Steps</h2>
         <p class="muted">Priority items to keep applications moving.</p>
         <ul class="checklist">
           <li>Finish NYU essay revisions</li>
@@ -140,5 +409,22 @@
       </aside>
     </div>
   </div>
+
+  <script>
+    const tabButtons = document.querySelectorAll(".tab-btn");
+    const tabPanels = document.querySelectorAll(".tab-panel");
+
+    tabButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        const target = button.getAttribute("data-tab");
+
+        tabButtons.forEach(btn => btn.classList.remove("active"));
+        tabPanels.forEach(panel => panel.classList.remove("active"));
+
+        button.classList.add("active");
+        document.getElementById(target).classList.add("active");
+      });
+    });
+  </script>
 </body>
 </html>
