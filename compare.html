@@ -11,34 +11,187 @@
       --muted: #7f93ab;
       --border: #d8e4f0;
       --shadow: 0 10px 30px rgba(73, 114, 160, 0.08);
+      --soft: #dbeaf8;
     }
-    * { box-sizing:border-box; margin:0; padding:0; }
-    body { font-family: Arial, Helvetica, sans-serif; background: linear-gradient(180deg, #f6f9fd 0%, #eaf2fa 100%); color: var(--text); }
-    .page { max-width: 1200px; margin: 0 auto; padding: 32px 20px 48px; }
-    .topbar { display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; margin-bottom:24px; }
-    .brand { display:flex; align-items:center; gap:12px; font-weight:700; color:var(--blue-dark); font-size:1.3rem; }
-    .logo { width:30px; height:30px; border-radius:8px; background:linear-gradient(135deg,#9ec6ef,#6fa6df); position:relative; }
-    .logo::after { content:"✔"; position:absolute; color:#fff; left:7px; top:3px; }
-    .nav { display:flex; gap:10px; flex-wrap:wrap; }
-    .nav a, .btn { text-decoration:none; padding:12px 16px; border-radius:12px; font-weight:700; border:1px solid var(--border); background:#fff; color:var(--text); }
-    .nav a.active, .btn.primary { background:#dbeaf8; color:var(--blue-dark); }
-    .hero, .card { background:#fff; border:1px solid var(--border); border-radius:22px; box-shadow:var(--shadow); }
-    .hero { padding:26px; margin-bottom:22px; }
-    .hero h1 { color:var(--blue-dark); margin-bottom:8px; }
-    .hero p, .muted { color:var(--muted); }
-    .grid { display:grid; grid-template-columns: 1.1fr 0.9fr; gap:20px; }
-    .card { padding:22px; }
-    .filters { display:flex; gap:10px; flex-wrap:wrap; margin-top:16px; }
-    select, input { width:100%; padding:12px 14px; border-radius:12px; border:1px solid var(--border); background:#fcfeff; color:var(--text); font:inherit; }
-    .filters select, .filters input { flex:1 1 150px; }
-    table { width:100%; border-collapse:collapse; margin-top:16px; border:1px solid var(--border); border-radius:16px; overflow:hidden; }
-    th, td { padding:14px 12px; border-bottom:1px solid var(--border); border-right:1px solid var(--border); text-align:left; background:#fff; }
-    th:last-child, td:last-child { border-right:none; }
-    tr:last-child td { border-bottom:none; }
-    .school { display:flex; justify-content:space-between; align-items:center; gap:12px; border:1px solid var(--border); border-radius:16px; padding:14px; margin-top:12px; background:#fbfdff; }
-    .left { display:flex; gap:12px; align-items:center; }
-    .icon { width:40px; height:40px; border-radius:12px; background:#dbeaf8; display:grid; place-items:center; color:var(--blue-dark); font-weight:700; }
-    @media (max-width: 900px) { .grid { grid-template-columns:1fr; } }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #f6f9fd 0%, #eaf2fa 100%);
+      color: var(--text);
+    }
+
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px 20px 48px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      color: var(--blue-dark);
+      font-size: 1.3rem;
+    }
+
+    .logo {
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #9ec6ef, #6fa6df);
+      position: relative;
+    }
+
+    .logo::after {
+      content: "✔";
+      position: absolute;
+      color: #fff;
+      left: 7px;
+      top: 3px;
+    }
+
+    .nav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .nav a,
+    .btn {
+      text-decoration: none;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-weight: 700;
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--text);
+    }
+
+    .nav a.active,
+    .btn.primary {
+      background: var(--soft);
+      color: var(--blue-dark);
+    }
+
+    .hero,
+    .card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      padding: 26px;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      color: var(--blue-dark);
+      margin-bottom: 8px;
+      font-size: 2.8rem;
+    }
+
+    .hero p,
+    .muted {
+      color: var(--muted);
+    }
+
+    .card {
+      padding: 22px;
+    }
+
+    .card h2 {
+      font-size: 1.9rem;
+      margin-bottom: 6px;
+    }
+
+    .filters {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+      margin-top: 18px;
+      margin-bottom: 20px;
+    }
+
+    select {
+      width: 100%;
+      padding: 16px 14px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: #fcfeff;
+      color: var(--text);
+      font: inherit;
+      font-size: 1rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    th,
+    td {
+      padding: 16px 14px;
+      border-bottom: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      text-align: left;
+      background: #fff;
+    }
+
+    th:last-child,
+    td:last-child {
+      border-right: none;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .saved-message {
+      margin-top: 16px;
+      padding: 14px 16px;
+      background: #f7fbff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      color: var(--blue-dark);
+      font-weight: 700;
+      display: none;
+    }
+
+    @media (max-width: 900px) {
+      .filters {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      table {
+        font-size: 0.92rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -54,94 +207,203 @@
     </div>
 
     <section class="hero">
-      <h1>Compare & Evaluate Schools</h1>
-      <p>View key college data side by side to make smarter application decisions.</p>
+      <h1>College Comparison</h1>
+      <p>Compare schools by admissions selectivity, costs, and outcomes.</p>
     </section>
 
-    <div class="grid">
-      <section class="card">
-        <h2>College Comparison</h2>
-        <p class="muted">Compare schools by admissions selectivity, costs, and outcomes.</p>
-        <div class="filters">
-          <select><option>Select college 1</option></select>
-          <select><option>Select college 2</option></select>
-          <select><option>Major</option></select>
-        </div>
+    <section class="card">
+      <h2>Compare Schools</h2>
+      <p class="muted">Choose two schools and a major to update the comparison table.</p>
 
-        <table>
-          <tr>
-            <th>Metric</th>
-            <th>Harvard</th>
-            <th>Yale</th>
-          </tr>
-          <tr>
-            <td>Acceptance Rate</td>
-            <td>4.6%</td>
-            <td>6.1%</td>
-          </tr>
-          <tr>
-            <td>Median SAT</td>
-            <td>1520</td>
-            <td>1480</td>
-          </tr>
-          <tr>
-            <td>Graduation Rate</td>
-            <td>98%</td>
-            <td>97%</td>
-          </tr>
-          <tr>
-            <td>Tuition</td>
-            <td>$55,000/yr</td>
-            <td>$51,000/yr</td>
-          </tr>
-          <tr>
-            <td>Location</td>
-            <td>Cambridge, MA</td>
-            <td>New Haven, CT</td>
-          </tr>
-        </table>
+      <div class="filters">
+        <select id="school1">
+          <option value="harvard">Harvard</option>
+          <option value="yale">Yale</option>
+          <option value="nyu">NYU</option>
+          <option value="ut-austin">UT Austin</option>
+          <option value="stanford">Stanford</option>
+        </select>
 
-        <a class="btn primary" href="tracker.html" style="display:inline-block; margin-top:16px;">Save to My Colleges</a>
-      </section>
+        <select id="school2">
+          <option value="yale">Yale</option>
+          <option value="harvard">Harvard</option>
+          <option value="nyu">NYU</option>
+          <option value="ut-austin">UT Austin</option>
+          <option value="stanford">Stanford</option>
+        </select>
 
-      <aside class="card">
-        <h2>Popular Saved Schools</h2>
-        <p class="muted">Quick-view options students commonly compare.</p>
+        <select id="majorSelect">
+          <option value="business">Business</option>
+          <option value="engineering">Engineering</option>
+          <option value="psychology">Psychology</option>
+          <option value="computer-science">Computer Science</option>
+        </select>
+      </div>
 
-        <div class="school">
-          <div class="left">
-            <div class="icon">N</div>
-            <div>
-              <strong>NYU</strong><br>
-              <span class="muted">Strong urban campus experience</span>
-            </div>
-          </div>
-          <strong>✓</strong>
-        </div>
+      <table>
+        <tr>
+          <th>Metric</th>
+          <th id="school1Name">Harvard</th>
+          <th id="school2Name">Yale</th>
+        </tr>
+        <tr>
+          <td>Acceptance Rate</td>
+          <td id="accept1">4.6%</td>
+          <td id="accept2">6.1%</td>
+        </tr>
+        <tr>
+          <td>Median SAT</td>
+          <td id="sat1">1520</td>
+          <td id="sat2">1480</td>
+        </tr>
+        <tr>
+          <td>Graduation Rate</td>
+          <td id="grad1">98%</td>
+          <td id="grad2">97%</td>
+        </tr>
+        <tr>
+          <td>Tuition</td>
+          <td id="tuition1">$55,000/yr</td>
+          <td id="tuition2">$51,000/yr</td>
+        </tr>
+        <tr>
+          <td>Location</td>
+          <td id="location1">Cambridge, MA</td>
+          <td id="location2">New Haven, CT</td>
+        </tr>
+        <tr>
+          <td id="majorRowLabel">Strong Program</td>
+          <td id="major1">Business</td>
+          <td id="major2">Business</td>
+        </tr>
+      </table>
 
-        <div class="school">
-          <div class="left">
-            <div class="icon">U</div>
-            <div>
-              <strong>UT Austin</strong><br>
-              <span class="muted">Large public university option</span>
-            </div>
-          </div>
-          <strong>✓</strong>
-        </div>
-
-        <div class="school">
-          <div class="left">
-            <div class="icon">S</div>
-            <div>
-              <strong>Stanford</strong><br>
-              <span class="muted">Highly selective and research-focused</span>
-            </div>
-          </div>
-          <strong>✓</strong>
-        </div>
-      </aside>
-    </div>
+      <button class="btn primary" id="saveBtn" style="margin-top:16px;">Save to My Colleges</button>
+      <div class="saved-message" id="savedMessage">Comparison saved to My Colleges.</div>
+    </section>
   </div>
+
+  <script>
+    const schoolData = {
+      "harvard": {
+        name: "Harvard",
+        acceptance: "4.6%",
+        sat: "1520",
+        grad: "98%",
+        tuition: "$55,000/yr",
+        location: "Cambridge, MA",
+        majors: {
+          business: "Business",
+          engineering: "Engineering",
+          psychology: "Psychology",
+          "computer-science": "Computer Science"
+        }
+      },
+      "yale": {
+        name: "Yale",
+        acceptance: "6.1%",
+        sat: "1480",
+        grad: "97%",
+        tuition: "$51,000/yr",
+        location: "New Haven, CT",
+        majors: {
+          business: "Business",
+          engineering: "Engineering",
+          psychology: "Psychology",
+          "computer-science": "Computer Science"
+        }
+      },
+      "nyu": {
+        name: "NYU",
+        acceptance: "12.2%",
+        sat: "1450",
+        grad: "93%",
+        tuition: "$58,000/yr",
+        location: "New York, NY",
+        majors: {
+          business: "Business",
+          engineering: "Engineering",
+          psychology: "Psychology",
+          "computer-science": "Computer Science"
+        }
+      },
+      "ut-austin": {
+        name: "UT Austin",
+        acceptance: "29.0%",
+        sat: "1360",
+        grad: "88%",
+        tuition: "$31,000/yr",
+        location: "Austin, TX",
+        majors: {
+          business: "Business",
+          engineering: "Engineering",
+          psychology: "Psychology",
+          "computer-science": "Computer Science"
+        }
+      },
+      "stanford": {
+        name: "Stanford",
+        acceptance: "3.9%",
+        sat: "1505",
+        grad: "96%",
+        tuition: "$62,000/yr",
+        location: "Stanford, CA",
+        majors: {
+          business: "Business",
+          engineering: "Engineering",
+          psychology: "Psychology",
+          "computer-science": "Computer Science"
+        }
+      }
+    };
+
+    const school1 = document.getElementById("school1");
+    const school2 = document.getElementById("school2");
+    const majorSelect = document.getElementById("majorSelect");
+    const saveBtn = document.getElementById("saveBtn");
+    const savedMessage = document.getElementById("savedMessage");
+
+    function updateTable() {
+      const s1 = schoolData[school1.value];
+      const s2 = schoolData[school2.value];
+      const major = majorSelect.value;
+
+      document.getElementById("school1Name").textContent = s1.name;
+      document.getElementById("school2Name").textContent = s2.name;
+
+      document.getElementById("accept1").textContent = s1.acceptance;
+      document.getElementById("accept2").textContent = s2.acceptance;
+
+      document.getElementById("sat1").textContent = s1.sat;
+      document.getElementById("sat2").textContent = s2.sat;
+
+      document.getElementById("grad1").textContent = s1.grad;
+      document.getElementById("grad2").textContent = s2.grad;
+
+      document.getElementById("tuition1").textContent = s1.tuition;
+      document.getElementById("tuition2").textContent = s2.tuition;
+
+      document.getElementById("location1").textContent = s1.location;
+      document.getElementById("location2").textContent = s2.location;
+
+      document.getElementById("majorRowLabel").textContent = "Strong Program";
+      document.getElementById("major1").textContent = s1.majors[major];
+      document.getElementById("major2").textContent = s2.majors[major];
+
+      savedMessage.style.display = "none";
+    }
+
+    school1.addEventListener("change", updateTable);
+    school2.addEventListener("change", updateTable);
+    majorSelect.addEventListener("change", updateTable);
+
+    saveBtn.addEventListener("click", function () {
+      const selectedMajor = majorSelect.options[majorSelect.selectedIndex].text;
+      savedMessage.textContent = `Saved ${schoolData[school1.value].name} and ${schoolData[school2.value].name} for ${selectedMajor}.`;
+      savedMessage.style.display = "block";
+    });
+
+    updateTable();
+  </script>
 </body>
 </html>
