@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AppTrack | Compare Colleges</title>
+  <style>
+    :root {
+      --blue-dark: #4d87c7;
+      --text: #30455f;
+      --muted: #7f93ab;
+      --border: #d8e4f0;
+      --shadow: 0 10px 30px rgba(73, 114, 160, 0.08);
+    }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family: Arial, Helvetica, sans-serif; background: linear-gradient(180deg, #f6f9fd 0%, #eaf2fa 100%); color: var(--text); }
+    .page { max-width: 1200px; margin: 0 auto; padding: 32px 20px 48px; }
+    .topbar { display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; margin-bottom:24px; }
+    .brand { display:flex; align-items:center; gap:12px; font-weight:700; color:var(--blue-dark); font-size:1.3rem; }
+    .logo { width:30px; height:30px; border-radius:8px; background:linear-gradient(135deg,#9ec6ef,#6fa6df); position:relative; }
+    .logo::after { content:"✔"; position:absolute; color:#fff; left:7px; top:3px; }
+    .nav { display:flex; gap:10px; flex-wrap:wrap; }
+    .nav a, .btn { text-decoration:none; padding:12px 16px; border-radius:12px; font-weight:700; border:1px solid var(--border); background:#fff; color:var(--text); }
+    .nav a.active, .btn.primary { background:#dbeaf8; color:var(--blue-dark); }
+    .hero, .card { background:#fff; border:1px solid var(--border); border-radius:22px; box-shadow:var(--shadow); }
+    .hero { padding:26px; margin-bottom:22px; }
+    .hero h1 { color:var(--blue-dark); margin-bottom:8px; }
+    .hero p, .muted { color:var(--muted); }
+    .grid { display:grid; grid-template-columns: 1.1fr 0.9fr; gap:20px; }
+    .card { padding:22px; }
+    .filters { display:flex; gap:10px; flex-wrap:wrap; margin-top:16px; }
+    select, input { width:100%; padding:12px 14px; border-radius:12px; border:1px solid var(--border); background:#fcfeff; color:var(--text); font:inherit; }
+    .filters select, .filters input { flex:1 1 150px; }
+    table { width:100%; border-collapse:collapse; margin-top:16px; border:1px solid var(--border); border-radius:16px; overflow:hidden; }
+    th, td { padding:14px 12px; border-bottom:1px solid var(--border); border-right:1px solid var(--border); text-align:left; background:#fff; }
+    th:last-child, td:last-child { border-right:none; }
+    tr:last-child td { border-bottom:none; }
+    .school { display:flex; justify-content:space-between; align-items:center; gap:12px; border:1px solid var(--border); border-radius:16px; padding:14px; margin-top:12px; background:#fbfdff; }
+    .left { display:flex; gap:12px; align-items:center; }
+    .icon { width:40px; height:40px; border-radius:12px; background:#dbeaf8; display:grid; place-items:center; color:var(--blue-dark); font-weight:700; }
+    @media (max-width: 900px) { .grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="topbar">
+      <div class="brand"><span class="logo"></span> AppTrack College Solutions</div>
+      <nav class="nav">
+        <a href="index.html">Dashboard</a>
+        <a href="tracker.html">Tracker</a>
+        <a href="compare.html" class="active">Compare</a>
+        <a href="support.html">Support</a>
+      </nav>
+    </div>
+
+    <section class="hero">
+      <h1>Compare & Evaluate Schools</h1>
+      <p>View key college data side by side to make smarter application decisions.</p>
+    </section>
+
+    <div class="grid">
+      <section class="card">
+        <h2>College Comparison</h2>
+        <p class="muted">Compare schools by admissions selectivity, costs, and outcomes.</p>
+        <div class="filters">
+          <select><option>Select college 1</option></select>
+          <select><option>Select college 2</option></select>
+          <select><option>Major</option></select>
+        </div>
+
+        <table>
+          <tr>
+            <th>Metric</th>
+            <th>Harvard</th>
+            <th>Yale</th>
+          </tr>
+          <tr>
+            <td>Acceptance Rate</td>
+            <td>4.6%</td>
+            <td>6.1%</td>
+          </tr>
+          <tr>
+            <td>Median SAT</td>
+            <td>1520</td>
+            <td>1480</td>
+          </tr>
+          <tr>
+            <td>Graduation Rate</td>
+            <td>98%</td>
+            <td>97%</td>
+          </tr>
+          <tr>
+            <td>Tuition</td>
+            <td>$55,000/yr</td>
+            <td>$51,000/yr</td>
+          </tr>
+          <tr>
+            <td>Location</td>
+            <td>Cambridge, MA</td>
+            <td>New Haven, CT</td>
+          </tr>
+        </table>
+
+        <a class="btn primary" href="tracker.html" style="display:inline-block; margin-top:16px;">Save to My Colleges</a>
+      </section>
+
+      <aside class="card">
+        <h2>Popular Saved Schools</h2>
+        <p class="muted">Quick-view options students commonly compare.</p>
+
+        <div class="school">
+          <div class="left">
+            <div class="icon">N</div>
+            <div>
+              <strong>NYU</strong><br>
+              <span class="muted">Strong urban campus experience</span>
+            </div>
+          </div>
+          <strong>✓</strong>
+        </div>
+
+        <div class="school">
+          <div class="left">
+            <div class="icon">U</div>
+            <div>
+              <strong>UT Austin</strong><br>
+              <span class="muted">Large public university option</span>
+            </div>
+          </div>
+          <strong>✓</strong>
+        </div>
+
+        <div class="school">
+          <div class="left">
+            <div class="icon">S</div>
+            <div>
+              <strong>Stanford</strong><br>
+              <span class="muted">Highly selective and research-focused</span>
+            </div>
+          </div>
+          <strong>✓</strong>
+        </div>
+      </aside>
+    </div>
+  </div>
+</body>
+</html>
